@@ -1,0 +1,72 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: 08-Dez-2015 às 14:28
+-- Versão do servidor: 5.6.17
+-- PHP Version: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `mydb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `disciplinas`
+--
+
+CREATE TABLE IF NOT EXISTS `disciplinas` (
+  `idDisciplina` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  `professor` varchar(50) NOT NULL,
+  `sala` int(11) NOT NULL,
+  PRIMARY KEY (`idDisciplina`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `disciplinas`
+--
+
+INSERT INTO `disciplinas` (`idDisciplina`, `nome`, `professor`, `sala`) VALUES
+(1, 'lpw', 'ramon', 123);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tarefas`
+--
+
+CREATE TABLE IF NOT EXISTS `tarefas` (
+  `idtarefas` int(11) NOT NULL AUTO_INCREMENT,
+  `idDisciplina` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `urgencia` int(11) NOT NULL,
+  `dFim` datetime NOT NULL,
+  `dInicio` datetime NOT NULL,
+  `pronta` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idtarefas`),
+  KEY `idDisciplina` (`idDisciplina`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Extraindo dados da tabela `tarefas`
+--
+
+INSERT INTO `tarefas` (`idtarefas`, `idDisciplina`, `nome`, `urgencia`, `dFim`, `dInicio`, `pronta`) VALUES
+(7, 1, 'fernando', 1, '2016-11-01 00:00:00', '2015-12-21 00:00:00', 1),
+(10, 1, 'sss', 1, '2015-06-12 00:00:00', '2014-02-21 00:00:00', 0);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `tarefas`
+--
+ALTER TABLE `tarefas`
+  ADD CONSTRAINT `tarefas_ibfk_1` FOREIGN KEY (`idDisciplina`) REFERENCES `disciplinas` (`idDisciplina`) ON DELETE CASCADE ON UPDATE CASCADE;
