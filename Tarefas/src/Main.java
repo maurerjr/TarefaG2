@@ -41,6 +41,7 @@ public class Main {
 				int id = tc.nextInt();
 				t.ler();
 				t.salvar(id);
+				break;
 				
 			}
 			
@@ -49,10 +50,11 @@ public class Main {
 				int op2=0;
 				do{
 				System.out.println("\n 1- Mostrar disciplinas e suas tarefas");
-				System.out.println("\n 1- Mostrar tarefa por Ordem de data a fim");
-				System.out.println("\n 2- Mostrar tarefaS atrasadas");
-				System.out.println("\n 3- Mostrar tarefas ordenadas pela maior urgencia");
-				System.out.println("\n 4- Mostrar todas");
+				System.out.println("\n 2- Mostrar tarefa por Ordem de data a fim");
+				System.out.println("\n 3- Mostrar tarefaS atrasadas");
+				System.out.println("\n 4- Mostrar tarefas ordenadas pela maior urgencia");
+				System.out.println("\n 5- Mostrar todas");
+				System.out.println("\n 6- Voltar");
 				op2=tc.nextInt();
 				switch(op2){
 				
@@ -94,7 +96,7 @@ public class Main {
 				    }
 				
 				}
-			}while(op!=6);
+			}while(op2!=6);
 				break;
 			}
 			
@@ -107,6 +109,7 @@ public class Main {
 				int id = tc.nextInt();
 				d.ler();
 				d.atualizar(id);
+				break;
 				
 			}
 			
@@ -151,7 +154,7 @@ public class Main {
 			
 			}
 			
-		}while(op!=7);
+		}while(op!=8);
 
 	}
 
